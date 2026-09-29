@@ -137,14 +137,12 @@ const limpiarSeleccion = () => {
                                 <td>{categoria.descripcion}</td>
 
                                 <td>
-
-                                    <button
-    className="btn btn-warning btn-sm me-2"
-    onClick={() => editar(categoria)}
+  <button
+  className="btn btn-warning btn-sm me-2"
+  onClick={() => editar(categoria)}
 >
-    Editar
+  Editar
 </button>
-
                                     <button
                                         className="btn btn-danger btn-sm"
                                         onClick={() => eliminar(categoria.id_categoria)}

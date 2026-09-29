@@ -1,8 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
-    return (
 
+    const navigate = useNavigate();
+
+    const usuarioGuardado = localStorage.getItem("usuario");
+
+    const usuario = usuarioGuardado
+        ? JSON.parse(usuarioGuardado)
+        : null;
+
+    const cerrarSesion = () => {
+        localStorage.removeItem("usuario");
+        navigate("/login", { replace: true });
+    };
+
+    return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 
             <div className="container">
@@ -22,40 +35,62 @@ function Navbar() {
 
                 <div className="collapse navbar-collapse" id="menu">
 
-                    <ul className="navbar-nav ms-auto">
+                    {usuario && (
+                        <ul className="navbar-nav ms-auto">
 
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">
-                                Inicio
-                            </Link>
-                        </li>
+                            <li className="nav-item">
+                                <span className="nav-link">
+                                    Hola, {usuario.nombre}
+                                </span>
+                            </li>
 
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/categorias">
-                                Categorías
-                            </Link>
-                        </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/">
+                                    Inicio
+                                </Link>
+                            </li>
 
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/productos">
-                                Productos
-                            </Link>
-                        </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/categorias">
+                                    Categorías
+                                </Link>
+                            </li>
 
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/about">
-                                Acerca
-                            </Link>
-                        </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/productos">
+                                    Productos
+                                </Link>
+                            </li>
 
-                    </ul>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/movimientos">
+                                    Movimientos
+                                </Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/about">
+                                    Acerca
+                                </Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <button
+                                    className="btn btn-outline-light ms-lg-2"
+                                    onClick={cerrarSesion}
+                                >
+                                    Cerrar sesión
+                                </button>
+                            </li>
+
+                        </ul>
+                    )}
 
                 </div>
 
             </div>
 
         </nav>
-
     );
 }
 

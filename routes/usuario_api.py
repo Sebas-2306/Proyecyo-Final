@@ -107,13 +107,18 @@ def login_usuario():
     conexion.close()
 
     if usuario_db and check_password_hash(
-        usuario_db["password"],
-        password
-    ):
+    usuario_db["password"],
+    password
+):
 
-        return jsonify({
-            "mensaje": "Autenticación satisfactoria."
-        }), 200
+       return jsonify({
+        "mensaje": "Autenticación satisfactoria.",
+        "usuario": {
+            "id_usuario": usuario_db["id_usuario"],
+            "nombre": usuario_db["nombre"],
+            "usuario": usuario_db["usuario"]
+        }
+    }), 200
 
     return jsonify({
         "mensaje": "Error en la autenticación."
