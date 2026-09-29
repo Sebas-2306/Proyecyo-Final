@@ -14,6 +14,8 @@ del código y el desarrollo ágil de aplicaciones web.
 """
 
 from flask import Flask, render_template
+from flask_cors import CORS
+
 from routes.categoria_routes import categoria_bp
 from routes.producto_routes import producto_bp
 from routes.usuario_api import usuario_api_bp
@@ -21,10 +23,19 @@ from routes.categoria_api import categoria_api_bp
 from routes.producto_api import producto_api_bp
 from routes.dashboard_api import dashboard_api_bp
 from routes.movimiento_api import movimiento_api_bp
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:5173"])
+
+CORS(
+    app,
+    origins=[
+        "http://localhost:5173",
+        "http://localhost:3000"
+    ],
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"]
+)
+
 from database import obtener_conexion
 
 """
