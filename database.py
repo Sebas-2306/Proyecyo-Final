@@ -20,7 +20,7 @@ def obtener_conexion():
     return pymysql.connect(
         host=Config.DB_HOST,
         user=Config.DB_USER,
-        password="SEBAS#2306",
+        password=Config.DB_PASSWORD,
         database=Config.DB_NAME,
         port=Config.DB_PORT,
         cursorclass=pymysql.cursors.DictCursor
