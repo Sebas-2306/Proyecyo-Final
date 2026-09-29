@@ -44,8 +44,8 @@ app.register_blueprint(dashboard_api_bp)
 app.register_blueprint(movimiento_api_bp)
 @app.route("/")
 def inicio():
- return "Sistema de Gestion de Inventario funcionando en Railway"
-"""conexion = obtener_conexion()
+ 
+    conexion = obtener_conexion()
     cursor = conexion.cursor()
 
     cursor.execute("SELECT COUNT(*) AS total FROM categorias WHERE estado='Activo'")
@@ -65,7 +65,7 @@ def inicio():
         total_categorias=total_categorias,
         total_productos=total_productos,
         stock_bajo=stock_bajo
-    )"""
+    )
 
 if __name__ == "__main__":
     app.run()
