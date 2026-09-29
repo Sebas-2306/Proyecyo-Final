@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // URL base de la API Flask
-const API_URL = "http://127.0.0.1:5000/api/productos";
+const API_URL = "https://proyecyo-final-production.up.railway.app/api/productos";
 
 /**
  * Obtiene todos los productos activos.
