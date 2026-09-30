@@ -1,0 +1,56 @@
+{% extends "layouts/base.html" %}
+
+{% block titulo %}
+Editar Categoría
+{% endblock %}
+
+{% block contenido %}
+
+<h2 class="mb-4">Editar Categoría</h2>
+
+<form action="/categorias/actualizar" method="POST">
+
+    <input
+        type="hidden"
+        name="id_categoria"
+        value="{{ categoria.id_categoria }}">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            name="nombre"
+            class="form-control"
+            value="{{ categoria.nombre }}"
+            required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Descripción
+        </label>
+
+        <textarea
+            name="descripcion"
+            class="form-control"
+            rows="4">{{ categoria.descripcion }}</textarea>
+
+    </div>
+
+    <button class="btn btn-success">
+        Actualizar
+    </button>
+
+    <a href="/categorias" class="btn btn-secondary">
+        Cancelar
+    </a>
+
+</form>
+
+{% endblock %}

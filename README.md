@@ -1,16 +1,45 @@
-# React + Vite
+# Sistema de Gestión de Inventario
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sistema web desarrollado para la gestión de inventario de la Tienda de Don Pedro.
 
-Currently, two official plugins are available:
+## Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Frontend
+- React
+- Vite
+- Bootstrap
+- Axios
+- React Router
+- SweetAlert2
 
-## React Compiler
+### Backend
+- Python
+- Flask
+- Flask-CORS
+- Gunicorn
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Base de datos
+- MySQL
 
-## Expanding the Oxlint configuration
+## Estructura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+El proyecto integra un frontend desarrollado con React y un backend desarrollado con Flask.
+
+El frontend consume la API REST proporcionada por el backend para realizar las operaciones de gestión de categorías, productos, movimientos y usuarios.
+
+## Despliegue
+
+El backend y la base de datos se encuentran preparados para ejecutarse en Railway.
+
+El frontend React se prepara mediante Vite para su despliegue en producción.
+
+## Funcionalidades principales
+
+- Inicio de sesión de usuarios
+- Registro de usuarios
+- Gestión de categorías
+- Gestión de productos
+- Gestión de movimientos de inventario
+- Consulta de existencias
+- Dashboard con estadísticas
+- Control de stock

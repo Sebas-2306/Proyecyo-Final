@@ -1,0 +1,68 @@
+{% extends "layouts/base.html" %}
+
+{% block titulo %}
+Categorías
+{% endblock %}
+
+{% block contenido %}
+
+<h2 class="mb-4">
+    Categorías
+</h2>
+<div class="mb-3">
+
+    <a
+        href="/categorias/nueva"
+        class="btn btn-primary">
+
+        Nueva Categoría
+
+    </a>
+
+</div>
+<table class="table table-striped table-bordered">
+
+   <thead class="table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+</thead>
+
+    <tbody>
+
+        {% for categoria in categorias %}
+
+        <tr>
+
+            <td>{{ categoria.id_categoria }}</td>
+
+            <td>{{ categoria.nombre }}</td>
+
+            <td>{{ categoria.descripcion }}</td>
+             <td>
+            <a
+                href="/categorias/editar/{{ categoria.id_categoria }}"
+                class="btn btn-warning btn-sm">
+                Editar
+            </a>
+            <a
+    href="/categorias/eliminar/{{ categoria.id_categoria }}"
+    class="btn btn-danger btn-sm"
+    onclick="return confirm('¿Está seguro de desactivar esta categoría?')">
+
+    Eliminar
+
+</a>
+        </td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
